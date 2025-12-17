@@ -3,6 +3,7 @@ import { useContext } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Home from './Home.jsx'
 import Tangier from './Tangier.jsx'
+import NotFound from './NotFound.jsx'
 import NavBar from './NavBar.jsx'
 import { Context } from './Context.jsx'
 
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tangier" element={<Tangier />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
     </div>
