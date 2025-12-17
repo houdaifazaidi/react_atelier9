@@ -1,0 +1,209 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  font-size: 16px;
+
+  /* Professional color palette */
+  --color-primary: #1e40af;
+  --color-primary-light: #3b82f6;
+  --color-secondary: #0891b2;
+  --color-accent: #06b6d4;
+  --color-dark-bg: #0f172a;
+  --color-dark-bg-secondary: #1e293b;
+  --color-dark-card: #1a2332;
+  --color-dark-text: #f1f5f9;
+  --color-dark-text-secondary: #cbd5e1;
+  --color-light-bg: #f8fafc;
+  --color-light-bg-secondary: #f1f5f9;
+  --color-light-card: #ffffff;
+  --color-light-text: #0f172a;
+  --color-light-text-secondary: #475569;
+
+  color-scheme: light dark;
+  color: var(--color-dark-text);
+  background-color: var(--color-dark-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 600;
+  color: var(--color-primary-light);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Theme switch classes (controlled by Context) */
+.app-root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.theme-dark {
+  background: linear-gradient(135deg, var(--color-dark-bg) 0%, var(--color-dark-bg-secondary) 100%);
+  color: var(--color-dark-text);
+}
+.theme-light {
+  background: linear-gradient(135deg, var(--color-light-bg) 0%, var(--color-light-bg-secondary) 100%);
+  color: var(--color-light-text);
+}
+
+.content {
+  flex: 1;
+  width: 100%;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.page {
+  width: 100%;
+  max-width: 900px;
+  padding: 3rem 2.5rem;
+  border-radius: 16px;
+  animation: slideIn 0.4s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page--dark {
+  background: rgba(26, 35, 50, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(100, 168, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+.page--light {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(30, 64, 175, 0.1);
+  box-shadow: 0 8px 32px rgba(30, 64, 175, 0.06);
+}
+
+.page h1 {
+  margin: 0 0 1.5rem 0;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page .lead {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  margin: 1.5rem 0 2rem 0;
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.page .tips {
+  margin-top: 2.5rem;
+  padding: 2rem;
+  border-radius: 12px;
+  list-style: none;
+  padding-left: 0;
+}
+
+.page .tips li {
+  padding: 1rem 0 1rem 2.5rem;
+  position: relative;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.page .tips li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+  color: var(--color-accent);
+  font-size: 1.3rem;
+}
+
+.theme-dark .page .tips {
+  background: rgba(100, 168, 255, 0.05);
+  border: 1px solid rgba(100, 168, 255, 0.1);
+}
+
+.theme-light .page .tips {
+  background: rgba(30, 64, 175, 0.03);
+  border: 1px solid rgba(30, 64, 175, 0.1);
+}
+
+.small {
+  opacity: 0.75;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.65em 1.2em;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: inherit;
+  background-color: var(--color-primary);
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+button:hover {
+  background-color: var(--color-primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(30, 64, 175, 0.3);
+}
+button:active {
+  transform: translateY(0);
+}
+button:focus,
+button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
